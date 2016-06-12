@@ -70,6 +70,8 @@ module OmniAuth
           @raw_info ||= access_token.
             get('https://api.fitbit.com/1/user/-/profile.json').parsed
         end
+        @raw_info[:scope] = access_token.params["scope"] if @raw_info
+        @raw_info
       end
     end
   end
